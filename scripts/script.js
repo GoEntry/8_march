@@ -1,4 +1,3 @@
-// Переменные
 const heart = document.getElementById('heart');
 const container = document.querySelector('.heart-container');
 const message = document.getElementById('message');

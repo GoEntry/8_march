@@ -130,17 +130,6 @@ body.dark {
     }
 }
 
-/* Цветы */
-.flower {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    background: url('https://i.imgur.com/7QZJz6L.png') no-repeat center center;
-    background-size: cover;
-    animation: fallFlower 5s linear infinite;
-    z-index: 1;
-}
-
 @keyframes fallFlower {
     0% {
         transform: translateY(-100vh) rotate(0deg);
