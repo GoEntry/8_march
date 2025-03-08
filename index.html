@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Поздравление</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="icon" href="icon/icon.png" type="image/x-icon">
+</head>
+<body>
+    <!-- Основной контент -->
+    <div class="heart-container">
+        <div id="heart" class="heart"></div>
+        <div id="message" class="message">
+            <h1>С 8 Марта, Алинчик!</h1>
+            <p>Пусть в твоей душе царят любовь, гармония, вдохновение и счастье!</p>
+        </div>
+    </div>
+
+    <!-- Красивый переключатель тем -->
+    <div class="theme-switcher">
+        <input type="checkbox" id="themeToggle" class="toggle-checkbox">
+        <label for="themeToggle" class="toggle-label">
+            <span class="sun">❤️</span>
+            <span class="moon">🖤</span>
+            <div class="slider"></div>
+        </label>
+    </div>
+
+    <!-- Аудиофайлы -->
+    <audio id="music1" loop preload="auto">
+        <source src="media/music1.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="music2" loop preload="auto">
+        <source src="media/music2.mp3" type="audio/mpeg">
+    </audio>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

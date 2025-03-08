@@ -1,0 +1,226 @@
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: background 1s ease;
+}
+
+/* Темная тема */
+body.dark {
+    background: linear-gradient(135deg, #660000, #2a0d45);
+}
+
+/* Контейнер сердца */
+.heart-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    perspective: 1000px;
+}
+
+/* Сердце */
+.heart {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: #ff5b5b;
+    transform: rotate(-45deg);
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.5s ease;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: #ff5b5b;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+}
+
+.heart::before {
+    top: -100px;
+    left: 0;
+}
+
+.heart::after {
+    left: 100px;
+    top: 0;
+}
+
+/* Темное сердце */
+.heart.dark {
+    background: #990000 !important;
+}
+
+.heart.dark::before,
+.heart.dark::after {
+    background: #990000 !important;
+}
+
+/* Сообщение внутри сердца */
+.message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    text-align: center;
+    color: white;
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 3;
+}
+
+.message h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.message p {
+    font-size: 1.2rem;
+}
+
+/* Активное состояние сердца */
+.open .heart {
+    transform: rotate(-45deg) scale(1.5);
+}
+
+.open .message {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Смайлики */
+.emoji {
+    position: absolute;
+    font-size: 2rem;
+    user-select: none;
+    bottom: 0;
+    animation: floatEmoji 5s linear infinite;
+    color: #ff5b5b;
+    transition: color 1s ease;
+}
+
+.emoji.dark {
+    color: #990000;
+}
+
+@keyframes floatEmoji {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Цветы */
+.flower {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: url('https://i.imgur.com/7QZJz6L.png') no-repeat center center;
+    background-size: cover;
+    animation: fallFlower 5s linear infinite;
+    z-index: 1;
+}
+
+@keyframes fallFlower {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Красивый переключатель тем */
+.theme-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-label {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 50px;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    border-radius: 30px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background 0.5s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-checkbox:checked + .toggle-label {
+    background: linear-gradient(135deg, #660000, #2a0d45);
+}
+
+.toggle-label .slider {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-checkbox:checked + .toggle-label .slider {
+    transform: translateX(65px);
+}
+
+.toggle-label .sun,
+.toggle-label .moon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    transition: color 0.5s ease;
+}
+
+.toggle-label .sun {
+    left: 15px;
+    color: #ff5b5b;
+}
+
+.toggle-label .moon {
+    right: 15px;
+    color: #990000;
+    opacity: 0;
+}
+
+.toggle-checkbox:checked + .toggle-label .sun {
+    opacity: 0;
+}
+
+.toggle-checkbox:checked + .toggle-label .moon {
+    opacity: 1;
+}
