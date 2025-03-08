@@ -110,20 +110,6 @@ function getRandomEmoji() {
     return emojis[Math.floor(Math.random() * emojis.length)];
 }
 
-// Создание цветов
-function createFlowers() {
-    for (let i = 0; i < 10; i++) {
-        setTimeout(() => {
-            const flower = document.createElement('div');
-            flower.classList.add('flower');
-            flower.style.left = `${Math.random() * 100}vw`;
-            flower.style.animationDuration = `${Math.random() * 3 + 2}s`;
-            document.body.appendChild(flower);
-            setTimeout(() => flower.remove(), 5000);
-        }, i * 200);
-    }
-}
-
 // Обработчики событий
 heart.addEventListener('click', (e) => {
     e.stopPropagation();
